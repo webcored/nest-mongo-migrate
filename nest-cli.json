@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "projects": {
+    "nest-mongo-migrate": {
+      "type": "library",
+      "root": "libs/nest-mongo-migrate",
+      "entryFile": "index",
+      "sourceRoot": "libs/nest-mongo-migrate/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/nest-mongo-migrate/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": false
+  }
+}
