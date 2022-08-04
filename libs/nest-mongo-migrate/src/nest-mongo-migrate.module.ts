@@ -9,6 +9,7 @@ export class NestMongoMigrateModule {
   static register({
     providers = [],
     imports = [],
+    ...rest
   }: ModuleMetadata): DynamicModule {
     // HACK: using migration class name as the provider token to fetch them dynamically using the moduleref
     const tokenizedProviders = providers.map((provider) => {
@@ -40,6 +41,7 @@ export class NestMongoMigrateModule {
         ]),
         ...imports,
       ],
+      ...rest,
     };
   }
 }

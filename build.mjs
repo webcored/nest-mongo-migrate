@@ -5,15 +5,20 @@ import {
   readFileSync,
   writeFileSync,
 } from 'fs';
-import { join } from 'path';
+import { join, resolve } from 'path';
+import rimraf from 'rimraf';
 
 (async () => {
-  // create new directory
-  mkdirSync('./publish');
-
-  // copy and paste the lib files to the new dir
+  const destPath = resolve('../publish');
   const sourcePath = './dist/libs/nest-mongo-migrate/src';
-  const destPath = './publish';
+
+  // delete folder
+  rimraf.sync(destPath);
+  // copy and paste the lib files to the new dir
+
+  // create new directory
+  mkdirSync(destPath);
+
   const files = readdirSync(sourcePath);
   files.forEach((file) => {
     copyFileSync(join(sourcePath, file), join(destPath, file));
@@ -31,6 +36,7 @@ import { join } from 'path';
     bugs,
     homepage,
     dependencies,
+    peerDependencies,
   } = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
   const packageJSON = JSON.stringify(
@@ -46,6 +52,8 @@ import { join } from 'path';
       bugs,
       homepage,
       dependencies,
+      peerDependencies,
+      devDependencies: peerDependencies,
     },
     null,
     2,

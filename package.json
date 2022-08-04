@@ -1,6 +1,6 @@
 {
   "name": "@webcored/nest-mongo-migrate",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-alpha",
   "description": "Mongodb cli migration for nestjs",
   "author": "Prakash Chokalingam",
   "license": "ISC",
@@ -31,7 +31,16 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepublish": "rimraf publish && nest build lib nest-mongo-migrate && node ./build.mjs"
+    "build:package": "nest build lib nest-mongo-migrate && node ./build.mjs"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/core": "^8.4.7",
+    "@nestjs/mongoose": "^9.1.1",
+    "nest-commander": "^2.5.0",
+    "mongoose": "^6.4.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.2.0"
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -41,7 +50,6 @@
     "ora": "^5.4.1"
   },
   "devDependencies": {
-    "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "mongoose": "^6.5.0",
