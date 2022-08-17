@@ -60,5 +60,5 @@ import rimraf from 'rimraf';
   );
 
   writeFileSync(join(destPath, 'package.json'), packageJSON);
-  console.log('package ready to publish');
+  console.log(`Package build & ready at: ${destPath}`);
 })();
