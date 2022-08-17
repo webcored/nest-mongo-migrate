@@ -56,7 +56,7 @@ import rimraf from 'rimraf';
       homepage,
       dependencies,
       // peerDependencies,
-      devDependencies: peerDependencies,
+      // devDependencies: peerDependencies,
     },
     null,
     2,
