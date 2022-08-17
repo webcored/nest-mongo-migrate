@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Migration, MigrationSchema } from './nest-mongo-migrate.schema';
 
 @Module({})
-export class NestMongoMigrateModule {
+class NestMongoMigrateModule {
   static register({
     providers = [],
     imports = [],
@@ -45,3 +45,5 @@ export class NestMongoMigrateModule {
     };
   }
 }
+
+export { NestMongoMigrateModule };

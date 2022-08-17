@@ -65,8 +65,8 @@ export class NestMongoMigrateService {
     const files = await this.getDirFiles();
     const exist = files.some((file) => {
       const [, ...actualFileName] = file.split('-');
-      const migrationFileName = actualFileName.join('-');
-      return migrationFileName === fileName;
+      const migrationName = actualFileName.join('-');
+      return migrationName === fileName;
     });
 
     if (exist) {
@@ -138,10 +138,8 @@ export class ${name} implements NestMongoMigration{
 
     if (!instance) {
       this.failureCallback({ name: migrationName, action, terminal });
-      console.error(
-        chalk.red(`${className} not found on the migration module`),
-      );
-      console.error(chalk.red(error.stack));
+      console.log(chalk.red(`${className} not found on the migration module`));
+      console.log(chalk.red(error.stack));
       return true; // stop exec
     }
 
@@ -236,7 +234,7 @@ export class ${name} implements NestMongoMigration{
     const document =
       migrationDocument ||
       new this.migrationModel({
-        name: name,
+        name,
       });
     document.status = action;
     await document.save();

@@ -1,4 +1,4 @@
 import { NestMongoMigration } from './nest-mongo-migrate.interface.dto';
+import { NestMongoMigrateModule } from './nest-mongo-migrate.module';
 
-export * from './nest-mongo-migrate.module';
-export { NestMongoMigration };
+export { NestMongoMigration, NestMongoMigrateModule };

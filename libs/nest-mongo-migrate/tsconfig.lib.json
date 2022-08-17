@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "sourceMap": false,
     "declaration": true,
     "outDir": "../../dist/libs/nest-mongo-migrate"
   },
