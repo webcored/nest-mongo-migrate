@@ -1,6 +1,6 @@
 {
   "name": "@webcored/nest-mongo-migrate",
-  "version": "0.0.4-alpha",
+  "version": "0.0.5-alpha",
   "description": "Mongodb cli migration tool for nestjs",
   "author": "Prakash Chokalingam",
   "license": "ISC",

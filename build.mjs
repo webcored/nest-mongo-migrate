@@ -9,20 +9,23 @@ import { join, resolve } from 'path';
 import rimraf from 'rimraf';
 
 (async () => {
-  const destPath = resolve('../publish');
+  const destPath = resolve('./publish');
   const sourcePath = './dist/libs/nest-mongo-migrate/src';
 
   // delete folder
   rimraf.sync(destPath);
-  // copy and paste the lib files to the new dir
 
   // create new directory
   mkdirSync(destPath);
 
+  // copy and paste the lib files to the new dir
   const files = readdirSync(sourcePath);
   files.forEach((file) => {
     copyFileSync(join(sourcePath, file), join(destPath, file));
   });
+
+  // copy readme
+  copyFileSync('./README.md', join(destPath, 'README'));
 
   // create package.json
   const {
@@ -36,7 +39,7 @@ import rimraf from 'rimraf';
     bugs,
     homepage,
     dependencies,
-    peerDependencies,
+    // peerDependencies,
   } = JSON.parse(readFileSync('./package.json', 'utf-8'));
 
   const packageJSON = JSON.stringify(
@@ -52,7 +55,7 @@ import rimraf from 'rimraf';
       bugs,
       homepage,
       dependencies,
-      peerDependencies,
+      // peerDependencies,
       devDependencies: peerDependencies,
     },
     null,
